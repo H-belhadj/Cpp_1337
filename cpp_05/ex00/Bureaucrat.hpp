@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:14:00 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/08/26 10:36:43 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:05:24 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ class Bureaucrat
     private:
         const std::string name;
         int grade;
-        static const int maxGrade = 1;
-        static const int minGrade = 150;
     public:
         Bureaucrat();
         Bureaucrat(const std::string& Name, int Grade);
@@ -39,6 +37,7 @@ class Bureaucrat
         {
             public:
                 virtual const char *what() const throw();
+            
         };
 
         class GradeTooHighException : public std::exception
