@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:57:46 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/09 17:43:36 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/13 08:11:11 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ class Form
                 }
         };
         //Getters
-        std::string getName();
-        bool isSigned();
-        unsigned int getSigngrade();
-        unsigned int getExecGrade();
+        std::string getName() const;
+        bool isSigned() const;
+        unsigned int getSigngrade() const;
+        unsigned int getExecGrade() const;
         void beSigned(Bureaucrat &bureaucrat);
 };
 std::ostream& operator<<(std::ostream& COUT, Form const& other);

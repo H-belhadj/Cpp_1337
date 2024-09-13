@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:57:49 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/09 17:39:13 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/13 08:14:25 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ Form::Form(const std::string& name, unsigned int signgrade, unsigned int execgra
 Form::~Form() {}
 
 //Getter Functions
-std::string Form::getName()
+std::string Form::getName() const
 {
     return name;
 }
-bool Form::isSigned()
+bool Form::isSigned() const
 {
     return siGned;
 }
-unsigned int Form::getSigngrade()
+unsigned int Form::getSigngrade() const
 {
     return signGrade;
 }
-unsigned int Form::getExecGrade()
+unsigned int Form::getExecGrade() const
 {
     return execGrade;
 }
@@ -48,9 +48,9 @@ void Form::beSigned(Bureaucrat &bureaucrat)
     if(bureaucrat.getGrade() <= signGrade)
         siGned = true;
     else
-        GradeTooLowException();
+        throw GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream& COUT, Form &Form)
+std::ostream& operator<<(std::ostream& COUT, const Form &Form)
 {
     COUT <<"Form : " << Form.getName() << " ,Grade To Sign:  " << Form.getSigngrade() << ", Grade To Execute: " << Form.getExecGrade() ;
     return COUT;

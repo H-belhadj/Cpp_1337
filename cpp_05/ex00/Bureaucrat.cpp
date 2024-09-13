@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:24:48 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/08/27 18:09:02 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:40:42 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ Bureaucrat::Bureaucrat(const std::string& Name, int Grade) : name(Name), grade(G
         throw GradeTooLowException();
     else if(Grade < 1)
         throw GradeTooHighException();
+    else
+        this->grade = Grade;
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
@@ -34,12 +36,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat(){}
 
-const std::string Bureaucrat::getName() const
+const std::string Bureaucrat::getName() 
 {
     return (this->name);
 }
 
-unsigned int Bureaucrat::getGrade() const
+unsigned int Bureaucrat::getGrade() 
 {
     return (this->grade);
 }
@@ -61,13 +63,11 @@ void Bureaucrat::incrementGrade()
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return "Error : Grade is too low";
-    exit(1);
+    return "ERROR : GradeTooLow";
 }
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return "Error : Grade is too high";
-    exit(1);
+    return "ERROR : GradeTooHigh";
 }
 std::ostream& operator<<(std::ostream& COUT, Bureaucrat const& other)
 {
