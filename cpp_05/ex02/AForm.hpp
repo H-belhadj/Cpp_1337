@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:08 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 11:25:39 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/27 11:59:27 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ class AForm
         unsigned int getExecGrade() const;
         void beSigned(Bureaucrat &bureaucrat);
         void ExecCheck(Bureaucrat const& executor) const;
+
+        virtual void execute(Bureaucrat const & executor) const = 0;
+
 
 };
 std::ostream& operator<<(std::ostream& COUT, AForm const& other);

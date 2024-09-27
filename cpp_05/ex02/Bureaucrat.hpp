@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:17 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 11:26:47 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/27 12:05:44 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         void	signForm(AForm& obj);
+        void    FormExecute(AForm const & Form);
         //exceptions
         class GradeTooLowException : public std::exception
         {
