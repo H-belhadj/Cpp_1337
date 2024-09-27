@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:08 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 11:59:27 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:54:26 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm
     public:
         AForm();
         AForm(const std::string& name, unsigned int signgrade, unsigned int execgrade);    
-        ~AForm();
+        virtual~AForm();
         
 
         //exception

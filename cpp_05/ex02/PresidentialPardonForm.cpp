@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:24 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 18:47:57 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:57:47 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,16 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& obj
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& obj)
 {
+    (void)obj;
     return (*this);
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    execute(executor);
+    (void) executor;
+     if (this->isSigned()) {
+        std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    } else {
+        throw NotSignedException(); // or some appropriate error handling
+    }
 }
