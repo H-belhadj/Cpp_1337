@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:16:55 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 12:05:57 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:30:05 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AForm::AForm(const std::string& Name, unsigned int signgrade, unsigned int execg
         throw GradeTooLowException();
     if (signgrade < 1 || execgrade < 1)
         throw GradeTooHighException();
-    std::cout << "Graded constructor called" << std::endl;
+    // std::cout << "Graded constructor called" << std::endl;
 }
 AForm::~AForm() {}
 

@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:29 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 14:48:23 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/28 15:21:06 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,25 +82,25 @@ int main()
 {
     Bureaucrat bureau;
     Intern someRandomIntern;
-    AForm* rrf;
+    AForm* form;
 //---------------------------Should create tests---------------------------//
     std::cout << "should create president\n" ;
-    rrf = someRandomIntern.makeForm("presidential quest", "Bender");
+    form = someRandomIntern.makeForm("presidential quest", "Bender");
     
     std::cout << "\nshould create shrubbery\n" ;
-    rrf = someRandomIntern.makeForm("shrubbery quest", "Bender");
+    form = someRandomIntern.makeForm("shrubbery quest", "Bender");
     
     std::cout << "\nshould create robotomy\n" ;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    form = someRandomIntern.makeForm("robotomy request", "Bender");
     
 
 //-------------------------Should not create tests-------------------------//
     std::cout << "\nshould not create president\n" ;
-    rrf = someRandomIntern.makeForm("president quest", "Bender");
+    form = someRandomIntern.makeForm("president quest", "Bender");
 
     std::cout << "\nshould not create shrubbery\n" ;
-    rrf = someRandomIntern.makeForm("shrubery quest", "Bender");
+    form = someRandomIntern.makeForm("shrubery quest", "Bender");
 
     std::cout << "\nshould not create robotomy\n" ;
-    rrf = someRandomIntern.makeForm("roboto request", "Bender");
+    form = someRandomIntern.makeForm("roboto request", "Bender");
 }
