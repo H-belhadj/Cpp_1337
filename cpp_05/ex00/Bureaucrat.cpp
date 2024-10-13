@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:24:48 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/09 17:40:42 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/13 16:48:28 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat(){}
 
-const std::string Bureaucrat::getName() 
+const std::string Bureaucrat::getName() const
 {
     return (this->name);
 }
 
-unsigned int Bureaucrat::getGrade() 
+unsigned int Bureaucrat::getGrade() const
 {
     return (this->grade);
 }
