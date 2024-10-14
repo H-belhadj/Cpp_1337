@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:20 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/14 19:27:56 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/14 22:24:16 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 int main()
 {
     bool CatchOrNot = false;
-    //----------------------------------------------------Test 01----------------------------------------------------//
+    // //----------------------------------------------------Test 01----------------------------------------------------//
     {
         std::cout << "-------------------------Test 01 : Can sign all the forms-------------------------" << std::endl;
         Bureaucrat  bureau("Bureau", 5);
@@ -37,7 +37,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the presidentialPardonForm" << RESET_TEXT << std::endl;
             pres.beSigned(bureau);
         }
-        catch(AForm::NotSignedException &e)
+        catch(std::exception &e)
         {
             std::cerr << e.what() << std::endl;
             CatchOrNot = true;
@@ -51,7 +51,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the ShrubberyCreationForm" << RESET_TEXT << std::endl;
             shrub.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -65,7 +65,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the RobotomyRequestForm" << RESET_TEXT << std::endl;
             robot.beSigned(bureau);        
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -84,7 +84,7 @@ int main()
     }
     
     
-    //----------------------------------------------------Test 02----------------------------------------------------//
+    // ----------------------------------------------------Test 02----------------------------------------------------//
     {
         std::cout << "\n\n--Test 02 : Can sign only ShrubberyCreationForm and RobotomyRequestForm forms--" << std::endl;
         Bureaucrat  bureau("Bureau", 50);
@@ -99,7 +99,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the presidentialPardonForm" << RESET_TEXT << std::endl;
             pres.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -113,7 +113,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the ShrubberyCreationForm" << RESET_TEXT << std::endl;
             shrub.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -127,7 +127,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the RobotomyRequestForm" << RESET_TEXT << std::endl;
             robot.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -160,7 +160,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the presidentialPardonForm" << RESET_TEXT << std::endl;
           pres.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -174,7 +174,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the ShrubberyCreationForm" << RESET_TEXT << std::endl;
             shrub.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -189,7 +189,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the RobotomyRequestForm" << RESET_TEXT << std::endl;
             robot.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -222,7 +222,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the presidentialPardonForm" << RESET_TEXT << std::endl;
             pres.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -236,7 +236,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the ShrubberyCreationForm" << RESET_TEXT << std::endl;
             shrub.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
@@ -250,7 +250,7 @@ int main()
             std::cout << ORANGE_TEXT << "\nBureaucrat trying to sign the RobotomyRequestForm" << RESET_TEXT << std::endl;
             robot.beSigned(bureau);
         }
-        catch(AForm::NotSignedException & e)
+        catch(std::exception & e)
         {
             std::cerr << e.what() << '\n';
             CatchOrNot = true;
