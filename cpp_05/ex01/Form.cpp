@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:57:49 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/13 08:14:25 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/14 18:19:49 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 
 Form::Form() : name("Default"), siGned(false), signGrade(150), execGrade(150){}
 
-Form::Form(const std::string& name, unsigned int signgrade, unsigned int execgrade) : name("Default"), siGned(false), signGrade(signgrade), execGrade(execgrade)
+Form::Form(const std::string& name, unsigned int signgrade, unsigned int execgrade) : name(name), siGned(false), signGrade(signgrade), execGrade(execgrade)
 {
-    (void)name;
     if (signgrade > 150 || execgrade > 150)
         throw GradeTooLowException();
     if (signgrade < 1 || execgrade < 1)
