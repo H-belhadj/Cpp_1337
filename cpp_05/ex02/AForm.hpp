@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:08 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 18:54:26 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/14 18:58:50 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm
     public:
         AForm();
         AForm(const std::string& name, unsigned int signgrade, unsigned int execgrade);    
-        virtual~AForm();
+        virtual ~AForm();
         
 
         //exception
@@ -67,8 +67,6 @@ class AForm
         void ExecCheck(Bureaucrat const& executor) const;
 
         virtual void execute(Bureaucrat const & executor) const = 0;
-
-
 };
 std::ostream& operator<<(std::ostream& COUT, AForm const& other);
 

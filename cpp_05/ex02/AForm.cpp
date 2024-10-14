@@ -22,11 +22,10 @@ AForm::AForm(const std::string& Name, unsigned int signgrade, unsigned int execg
         throw GradeTooLowException();
     if (signgrade < 1 || execgrade < 1)
         throw GradeTooHighException();
-    std::cout << "Graded constructor called" << std::endl;
+    // std::cout << "Graded constructor called" << std::endl;
 }
 AForm::~AForm() {}
 
-//Getter Functions
 std::string AForm::getName() const
 {
     return name;

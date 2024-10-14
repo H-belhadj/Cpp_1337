@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:38 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 15:43:00 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:05:15 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "AForm.hpp"
 #include <fstream>
 
+class AForm;
 class ShrubberyCreationForm : public AForm
 {
     private:

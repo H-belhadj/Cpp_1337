@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:27 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/27 18:45:24 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:05:46 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "AForm.hpp"
 #include <fstream>
 
+class AForm;
 class PresidentialPardonForm : public AForm
 {
     private:
