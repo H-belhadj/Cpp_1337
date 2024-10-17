@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:50 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 10:03:06 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:38:57 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ShrubberyCreationForm : public AForm
     private:
         std::string target;
     public:
+    ShrubberyCreationForm();
     ShrubberyCreationForm(const std::string Target);
     ~ShrubberyCreationForm();
     ShrubberyCreationForm(const ShrubberyCreationForm& obj);

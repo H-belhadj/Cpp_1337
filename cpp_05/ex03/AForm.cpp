@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:16:55 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 15:30:05 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/17 10:45:08 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ AForm::AForm(const std::string& Name, unsigned int signgrade, unsigned int execg
         throw GradeTooLowException();
     if (signgrade < 1 || execgrade < 1)
         throw GradeTooHighException();
-    // std::cout << "Graded constructor called" << std::endl;
 }
 AForm::~AForm() {}
 
@@ -52,7 +51,7 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 }
 std::ostream& operator<<(std::ostream& COUT, const AForm &AForm)
 {
-    COUT <<"AForm : " << AForm.getName() << " ,Grade To Sign:  " << AForm.getSigngrade() << ", Grade To Execute: " << AForm.getExecGrade() ;
+    COUT <<"Form Name : " << AForm.getName() << ", Grade To Sign:  {" << AForm.getSigngrade() << "}, Grade To Execute: {" << AForm.getExecGrade() << "}" << std::endl; ;
     return COUT;
 }
 

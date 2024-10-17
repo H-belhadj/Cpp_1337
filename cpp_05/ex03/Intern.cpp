@@ -6,42 +6,46 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:21 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 15:30:30 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:33:32 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+ // Assuming these files exist
 
 Intern::Intern(){}
 
-Intern::~Intern(){}
+Intern::~Intern(){
+}
 
-AForm *Intern::makeForm(std::string type, std::string target)
+AForm    *Intern::makeForm(std::string type, std::string target)
 {
-    int x = -1;
-    std::string str[] = {"presidential", "shrubbery", "robotomy"};
-    ft_ptr intern_ptr[3] = {&Intern::CreatePresidentialPardonForm, &Intern::CreateShrubberyCreationForm, &Intern::CreateRobotomyRequestForm};
-    while(++x < 3)
+    std::string array[] = {"presidential", "shrubbery", "robotomy"};
+    fct_ptr intern_ptr[3] = {&Intern::CreatePresidentialPardonForm, &Intern::CreateShrubberyCreationForm, &Intern::CreateRobotomyRequestForm};;
+
+    for(int x = 0; x < 3; x++)
     {
-        if(type.find(str[x]) != std::string::npos)
+        if (type.find(array[x]) != std::string::npos)
         {
-            std::cout << "Intern Createss " << str[x] << " quest" << std::endl;
+            std::cout << "Intern creates " << type << std::endl;
             return (this->*intern_ptr[x])(target);
         }
     }
-        std::cout << "An error appearse in makeForm function, it seems that the parameters you entered are wrong" << std::endl;
-        return NULL; 
+    std::cout << "An error appearse in makeForm function, it seems that the parameters you entered are wrong\n";
+    return NULL;
 }
-AForm   *Intern::CreatePresidentialPardonForm(std::string target)
-{
-    return new PresidentialPardonForm(target);
-}
-AForm   *Intern::CreateRobotomyRequestForm(std::string target)
-{
-    return new RobotomyRequestForm(target);
 
-}
-AForm   *Intern::CreateShrubberyCreationForm(std::string target)
+AForm  *Intern::CreatePresidentialPardonForm(std::string target)
 {
-    return new ShrubberyCreationForm(target);
+    return (new PresidentialPardonForm(target));
+}
+
+AForm  *Intern::CreateShrubberyCreationForm(std::string target)
+{
+    return (new ShrubberyCreationForm(target));
+}
+
+AForm  *Intern::CreateRobotomyRequestForm(std::string target)
+{
+    return (new RobotomyRequestForm(target));
 }

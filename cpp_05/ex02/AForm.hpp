@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:08 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/14 18:58:50 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:07:23 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ class AForm
         AForm(const std::string& name, unsigned int signgrade, unsigned int execgrade);    
         virtual ~AForm();
         
-
-        //exception
         class GradeTooLowException : public std::exception
         {
             public:

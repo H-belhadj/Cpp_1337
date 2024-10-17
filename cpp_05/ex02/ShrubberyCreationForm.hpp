@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:38 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/14 19:05:15 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/15 17:13:06 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class ShrubberyCreationForm : public AForm
         std::string target;
     public:
     ShrubberyCreationForm(const std::string Target);
-    ~ShrubberyCreationForm();
     ShrubberyCreationForm(const ShrubberyCreationForm& obj);
     ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
+    ~ShrubberyCreationForm();
 
     void execute(Bureaucrat const & executor) const;
 

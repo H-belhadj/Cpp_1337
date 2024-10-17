@@ -6,12 +6,13 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:47 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/09/28 10:02:58 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:17:26 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+ShrubberyCreationForm::ShrubberyCreationForm(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string Target) : AForm("ShrubberyCreationForm", 145, 137), target(Target) {}
 
@@ -52,5 +53,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         ofs << "       |||       " << std::endl;
         ofs.close();
     }
-    
 }
