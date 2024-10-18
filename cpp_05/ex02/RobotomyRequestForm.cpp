@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 10:03:29 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/15 17:33:12 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:11:47 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     ExecCheck(executor);
-    std::cout << ".........  * DRILLING NOISE * ........." << std::endl;
+    std::cout << ".........Some Drilling Noises........." << std::endl;
     srand(time(0));
     if(rand() % 2 == 0)
         std::cout << target << " has been robotomized." << std::endl;
