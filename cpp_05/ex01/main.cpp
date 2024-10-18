@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:57:44 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/15 17:03:19 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:41:13 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(){
 	try
 	{
-		Bureaucrat	agent = Bureaucrat("haitam", 10);
+		Bureaucrat	agent = Bureaucrat("Haitam", 10);
 		std::cout << agent << std::endl;
 		Form file = Form("FBI", 10, 1);
 		std::cout << file << std::endl ;
