@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 22:27:52 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/26 23:47:53 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/26 23:52:28 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 #include "Serializer.hpp"
 
 int main() {
-    // Create a Data object with some data
-    Data data = {"Example Name", 42, 84};
+    // Step 1: Create a Data object and populate it with some values.
+    Data data = {"Sample Name", 123, 456};
 
-    // Display original data
+    // Display original data to verify the contents
     std::cout << "Original Data:\n";
     std::cout << "Name: " << data._name << "\n";
     std::cout << "num1: " << data.num1 << "\n";
     std::cout << "num2: " << data.num2 << "\n\n";
 
-    // Serialize the pointer to `data`
-    uintptr_t raw = Serializer::serialize(&data);
-    std::cout << "Serialized pointer (integer representation): " << raw << "\n\n";
+    // Step 2: Serialize the pointer to `data` (convert pointer to integer).
+    uintptr_t serializedPtr = Serializer::serialize(&data);
+    std::cout << "Serialized Pointer: " << serializedPtr << "\n\n";
 
-    // Deserialize back to a `Data` pointer
-    Data* deserializedData = Serializer::deserialize(raw);
+    // Step 3: Deserialize the integer back to a pointer.
+    Data* deserializedPtr = Serializer::deserialize(serializedPtr);
 
-    // Display deserialized data to confirm it's the same as the original
-    std::cout << "Deserialized Data:\n";
-    std::cout << "Name: " << deserializedData->_name << "\n";
-    std::cout << "num1: " << deserializedData->num1 << "\n";
-    std::cout << "num2: " << deserializedData->num2 << "\n";
+    // Step 4: Verify that the original and deserialized pointers are the same.
+    if (deserializedPtr == &data) {
+        std::cout << "Deserialization successful! Pointers match.\n";
+    } else {
+        std::cout << "Deserialization failed. Pointers do not match.\n";
+    }
 
     return 0;
 }
