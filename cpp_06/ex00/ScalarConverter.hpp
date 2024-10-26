@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:28:56 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/25 20:06:55 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/26 16:24:38 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ class ScalarConverter
 {
     private:
         ScalarConverter();
-    
     public:
-        // ScalarConverter();
         ScalarConverter& operator=(const ScalarConverter& obj);
         ~ScalarConverter();
+        static	void convert(std::string arg);
 };
 
  #endif
