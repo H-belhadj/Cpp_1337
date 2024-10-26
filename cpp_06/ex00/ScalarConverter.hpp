@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:28:56 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/21 11:00:11 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:06:55 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <limits.h>
 
 typedef enum e_type
 {
-    CHAR,
+    CHAR, 
     INT,
     FLOAT,
     DOUBLE
@@ -32,8 +33,7 @@ class ScalarConverter
         ScalarConverter();
     
     public:
-        ScalarConverter();
-        ScalarConverter(const ScalarConverter& obj);
+        // ScalarConverter();
         ScalarConverter& operator=(const ScalarConverter& obj);
         ~ScalarConverter();
 };
