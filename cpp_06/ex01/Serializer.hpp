@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 22:27:48 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/26 22:50:45 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/11/08 20:59:14 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@
 #include <iostream>
 #include <string>
 
-typedef struct e_type
+struct Data
 {
-    std::string _name;
-    int num1;
-    int num2;
-}Data;
-
-typedef unsigned long uintptr_t;
+    uintptr_t value;
+};
 
 class Serializer
 {

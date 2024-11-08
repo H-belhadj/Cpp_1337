@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:28:54 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/26 16:29:25 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/11/08 21:35:43 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,30 @@ bool one_dot(std::string str)
     size_t point = 0;
     size_t flag = 0;
     size_t start = 0;
-    if(str[0] == '-' || str[0] == '+')
+
+    if (str[0] == '-' || str[0] == '+') {
         start = 1;
-    for(size_t i = start; i < str.length(); i++)
-    {
-        if(str[i] =='.')
-        {
-            if(point || i == start || i == str.length() - 1 || !isdigit(str[i + 1] || !isdigit(str[i - 1])))
-                return false;
-            point = 1;
-        }
-        else if(str[i] == 'f')
-        {
-            if(flag || i != str.length() - 1)
-                return false;
-            flag = 1;
-        }
-        else if (!isdigit(str[i]))
-            return false;
     }
+
+    for (size_t i = start; i < str.length(); i++) {
+        if (str[i] == '.') {
+            if (point || i == start || i == str.length() - 1 || !isdigit(str[i + 1]) || !isdigit(str[i - 1])) {
+                return false;
+            }
+            point = 1;
+        } else if (str[i] == 'f') {
+            if (flag || i != str.length() - 1 || point == 0) { // Ensure 'f' is at the end and that there is a decimal point
+                return false;
+            }
+            flag = 1;
+        } else if (!isdigit(str[i])) {
+            return false;
+        }
+    }
+
     return true;
 }
+
 
 bool ft_float(std::string str)
 {
@@ -215,11 +218,19 @@ bool ft_pseudo(std::string arg)
 
 void ScalarConverter::convert(std::string arg)
 {
-    if (ft_pseudo(arg))
+        if (ft_pseudo(arg)) return;
+
+    // Check for invalid float representation with multiple dots
+    if (!one_dot(arg)) {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
         return;
+    }
+
     d_type type = ft_type(arg);
-    switch (type)
-    {
+    switch (type) {
         case CHAR:
             ft_cast_char(arg);
             break;
