@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:24 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/17 13:15:49 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:44:48 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ public:
 };
 
 typedef AForm *(Intern::*fct_ptr)(std::string);
+typedef int gezza;
 
 #endif

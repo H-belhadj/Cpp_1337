@@ -31,7 +31,7 @@ int main()
     //test2: one element
     std::vector<int> madd;
     std::cout << "======Madd vector======" << std::endl;
-    madd.push_back(2);
+    madd.push_back(3);
     try
     {
         easyfind(madd, 3);
@@ -48,15 +48,13 @@ int main()
     stormy.push_back(2);
     stormy.push_back(3);
     stormy.push_back(4);
-    stormy.push_back(5);
+    stormy.push_back(50);
     try
     {
-        easyfind(stormy, 3);
+        easyfind(stormy, 50);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
 }

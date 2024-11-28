@@ -10,59 +10,57 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "Array.hpp"
 #include <iostream>
+#include "Array.hpp"
 
-int main() {
-    try {
-        // Test 1: Default constructor
-        Array<int> emptyArray;
-        std::cout << "Default array size: " << emptyArray.size() << std::endl;
+int main()
+{
+    // Test 1: Creating an empty array
+    Array<int> arr1;
+    std::cout << "Array 1 size: " << arr1.size() << std::endl;
 
-        std::cout << "-------------------" << std::endl;
+    // Test 2: Creating an array of 5 integers
+    Array<int> arr2(5);
+    std::cout << "Array 2 size: " << arr2.size() << std::endl;
 
-        // Test 2: Parameterized constructor
-        Array<int> intArray(5);
-        std::cout << "Initialized array size: " << intArray.size() << std::endl;
+    // Initializing array elements
+    for (unsigned int i = 0; i < arr2.size(); i++)
+    {
+        arr2[i] = i * 2; // Assign values to the array elements
+    }
 
-        // Test 3: Populate and access elements
-        for (unsigned int i = 0; i < intArray.size(); i++) {
-            intArray[i] = i * 10;
-        }
+    // Output array elements
+    for (unsigned int i = 0; i < arr2.size(); i++)
+    {
+        std::cout << "arr2[" << i << "] = " << arr2[i] << std::endl;
+    }
 
-        std::cout << "Array values after assignment:" << std::endl;
-        for (unsigned int i = 0; i < intArray.size(); i++) {
-            std::cout << "intArray[" << i << "] = " << intArray[i] << std::endl;
-        }
+    // Test 3: Accessing out-of-range index (throws exception)
+    try
+    {
+        arr2[10] = 20;  // Throws std::exception if the index is out of bounds
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << "Caught exception: " << e.what() << std::endl;
+    }
 
-        std::cout << "-------------------" << std::endl;
+    // Test 4: Const array for read-only access
+    Array<int> constArr(5);
+    for (unsigned int i = 0; i < arr2.size(); i++)
+    {
+        std::cout << "arr2[" << i << "] = " << arr2[i] << std::endl;
+    }
+    try
+    {
+        constArr[0] = 10;
+        int value = constArr[3];
+        std::cout << "constArr[3] = " << value << std::endl;
 
-        // Test 4: Copy constructor
-        Array<int> copiedArray(intArray);
-        std::cout << "Copied array values:" << std::endl;
-        for (unsigned int i = 0; i < copiedArray.size(); i++) {
-            std::cout << "copiedArray[" << i << "] = " << copiedArray[i] << std::endl;
-        }
-
-        std::cout << "-------------------" << std::endl;
-
-        // Test 5: Assignment operator
-        Array<int> assignedArray;
-        assignedArray = intArray;
-        std::cout << "Assigned array values:" << std::endl;
-        for (unsigned int i = 0; i < assignedArray.size(); i++) {
-            std::cout << "assignedArray[" << i << "] = " << assignedArray[i] << std::endl;
-        }
-
-        std::cout << "-------------------" << std::endl;
-
-        // Test 6: Access out-of-bounds index
-        std::cout << "Trying to access an out-of-bounds index:" << std::endl;
-        std::cout << intArray[10] << std::endl; // This should throw an exception
-
-    } catch (const std::exception &e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << "Caught exception: " << e.what() << std::endl;
     }
 
     return 0;

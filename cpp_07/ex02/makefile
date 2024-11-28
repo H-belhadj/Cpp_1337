@@ -1,18 +1,18 @@
 CXX=c++
-SRC = main.cpp Array.tpp
-DFS = Array.hpp
+SRC = main.cpp 
+DFS = Array.hpp Array.tpp
 
 OSRC=$(SRC:.cpp=.o)
-NAME= Array
+NAME=Array
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME):$(OSRC) 
+$(NAME): $(OSRC) 
 	@$(CXX) $(CFLAGS) $(OSRC) -o $@
 
 %.o : %.cpp $(DFS)
-	@$(CXX) $(CFLAGS) -c $<
+	@$(CXX) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OSRC)
@@ -20,4 +20,5 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
-re:fclean all
+re: fclean all
+

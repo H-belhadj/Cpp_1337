@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:14:06 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/14 17:59:09 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/18 16:10:45 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int main()
 {
     try
     {
-        Bureaucrat b1("Bureaucrat 1", 1);
+        Bureaucrat b1("Bureaucrat 1", 3);
         std::cout << b1 << std::endl;
         b1.incrementGrade();
-        b1.incrementGrade();
+                std::cout << b1 << std::endl;
+        // b1.incrementGrade();
         // std::cout << b1 << std::endl;
         // Bureaucrat b2("Bureaucrat 2", 1);
         // std::cout << b2 << std::endl;

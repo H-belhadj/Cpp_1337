@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:52:25 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/01/19 15:37:50 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:39:13 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int main(int argc, char **argv)
             break;
         txt.append("\n");
     }
-    size_t start = 0;
-    size_t find = txt.find(s1, start);
+    unsigned int start = 0;
+    unsigned int find = txt.find(s1, start);
     while(find !=  std::string::npos)
     {
         res.append(txt, start, find - start);

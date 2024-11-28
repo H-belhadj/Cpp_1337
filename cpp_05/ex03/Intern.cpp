@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 09:17:21 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/10/17 12:33:32 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:39:07 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Intern::~Intern(){
 AForm    *Intern::makeForm(std::string type, std::string target)
 {
     std::string array[] = {"presidential", "shrubbery", "robotomy"};
-    fct_ptr intern_ptr[3] = {&Intern::CreatePresidentialPardonForm, &Intern::CreateShrubberyCreationForm, &Intern::CreateRobotomyRequestForm};;
+    fct_ptr intern_ptr = &Intern::CreatePresidentialPardonForm;
+       int     i      = 4869;
 
     for(int x = 0; x < 3; x++)
     {

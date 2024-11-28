@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 19:54:10 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/11/08 21:03:23 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/11/21 21:45:49 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@
 #include <cstdlib>
 #include <ctime>
 
-#include "Base.hpp"
-#include <ctime>
-
-int	main(){
+int	main()
+{
 	Base* x = generate();
 	Base* y = generate();
 

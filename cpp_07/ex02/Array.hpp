@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/16 17:27:17 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/11/16 17:27:17 by hbelhadj         ###   ########.fr       */
+/*   Created: 2024/11/24 13:30:48 by hbelhadj          #+#    #+#             */
+/*   Updated: 2024/11/24 13:30:48 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
 
 template <typename Type>
 class Array
@@ -42,4 +41,7 @@ class Array
         };
 };
 
+#include "Array.tpp"
+
 #endif
+
