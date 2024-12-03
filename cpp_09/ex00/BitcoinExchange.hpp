@@ -6,7 +6,7 @@
 /*   By: hbelhadj <hbelhadj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:20:20 by hbelhadj          #+#    #+#             */
-/*   Updated: 2024/12/03 17:20:26 by hbelhadj         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:49:37 by hbelhadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ class BitcoinExchange
         int readFlag;
     public:
         BitcoinExchange();
-        BitcoinExchange& operator=(const BitcoinExchange& rhs);
         BitcoinExchange(const BitcoinExchange& obj);
         ~BitcoinExchange();
+        BitcoinExchange& operator=(const BitcoinExchange& rhs);
         void setData(std::string date, float value);
         void readData(std::string input);
         std::map<std::string, float> GetData();
