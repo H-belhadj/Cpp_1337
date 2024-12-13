@@ -20,8 +20,8 @@ BitcoinExchange::BitcoinExchange()
         size_t commaPos = line.find(',');
         if (commaPos != std::string::npos)
         {
-            std::string date = line.substr(0, commaPos);
-            double rate = std::atof(line.substr(commaPos + 1).c_str());
+            std::string date = line.substr(0, commaPos); //Extracts the date from the line.
+            double rate = std::atof(line.substr(commaPos + 1).c_str()); // Extract and Convert the Rate
             data[date] = rate;
         }
     }
@@ -39,6 +39,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
         data = other.data;
     return *this;
 }
+
 
 BitcoinExchange::~BitcoinExchange() {}
 
@@ -117,12 +118,27 @@ bool BitcoinExchange::validateDate(const std::string& date)
     if (month < 1 || month > 12 || day < 1 || day > 31)
         return false;
 
+    // the case of february 
+    if (month == 2)
+    {
+        bool isLeapYear = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        if ((isLeapYear && day > 29) || (!isLeapYear && day > 28))
+            return false;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11)
+    {
+        if (day > 30)
+            return false;
+    }
+
     return true;
 }
 
+
 bool BitcoinExchange::validateValue(const double value)
 {
-    if (value < 0) {
+    if (value < 0)
+    {
         std::cerr << "Error: Not a positive number." << std::endl;
         return false;
     }
