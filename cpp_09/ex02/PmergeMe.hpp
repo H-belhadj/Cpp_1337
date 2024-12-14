@@ -3,42 +3,38 @@
 
 #include <iostream>
 #include <vector>
-#include <deque>
-#include <iomanip>
-#include <sys/time.h>
+#include <string>
 #include <algorithm>
+#include <deque>
+#include <stdexcept>
 #include <ctime>
 
-template <typename container>
-class PmergeMe
-{
-public:
-    typedef typename container::value_type      v_type;
-    typedef std::pair<v_type, v_type>           p_type;
+class PmergeMe {
+    private:
+        std::vector<int> Vec_;
+        std::deque<int> deq_;
+        clock_t time_Vec;
+        clock_t time_Deque;
 
-private:
-    container                   data;
-    container                   pend;
-    container                   seqnbr;
-    double                      time;
-    std::vector<p_type>         pairs;
+        bool addNumberToContainer(int number);
 
-    bool    isnbr(std::string str);
-    void    generate(size_t size, container &seqnbr);
+        void sortVector();
+        void sortDeque();
 
-    PmergeMe(void);  // Private default constructor
+        void sortVectorUsingMerge(int first, int last);
+        void sortDequeUsingMerge(int first, int last);
 
-public:
-    PmergeMe(char **av);
-    PmergeMe(const PmergeMe& obj);
-    PmergeMe& operator=(const PmergeMe& obj);
-    ~PmergeMe(void);
+        void mergeVector(int first, int middle, int last);
+        void mergeDeque(int first, int middle, int last);
+    public:
+        PmergeMe();
+        PmergeMe(const PmergeMe& obj);
+        PmergeMe& operator=(const PmergeMe& rhs);
+        ~PmergeMe();
 
-    void    DataDisplay(void);
-    void    TimeDisplay(std::string ctype);
-    void    sort(void);
+        void start(char **argv, int argc);
+        const std::vector<int>& getVector() const;
+        const std::deque<int>& getDeque() const;
 };
 
-#include "PmergeMe.tpp"
-
-#endif // PMERGEME_HPP
+#endif
