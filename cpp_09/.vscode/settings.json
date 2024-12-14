@@ -57,6 +57,14 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-    "stack": "cpp"
+    "stack": "cpp",
+    "filesystem": "cpp",
+    "iosfwd": "cpp",
+    "vector": "cpp",
+    "memory": "cpp",
+    "array": "cpp",
+    "iterator": "cpp",
+    "string": "cpp",
+    "string_view": "cpp"
   }
 }
