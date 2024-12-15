@@ -1,40 +1,25 @@
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
-#include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
 #include <deque>
-#include <stdexcept>
-#include <ctime>
+#include <string>
 
 class PmergeMe {
-    private:
-        std::vector<int> Vec_;
-        std::deque<int> deq_;
-        clock_t time_Vec;
-        clock_t time_Deque;
+private:
+    std::vector<int> Vec_;
+    std::deque<int> deq_;
 
-        bool addNumberToContainer(int number);
+public:
+    PmergeMe();
+    PmergeMe(const PmergeMe& obj);
+    PmergeMe& operator=(const PmergeMe& rhs);
+    ~PmergeMe();
 
-        void sortVector();
-        void sortDeque();
-
-        void sortVectorUsingMerge(int first, int last);
-        void sortDequeUsingMerge(int first, int last);
-
-        void mergeVector(int first, int middle, int last);
-        void mergeDeque(int first, int middle, int last);
-    public:
-        PmergeMe();
-        PmergeMe(const PmergeMe& obj);
-        PmergeMe& operator=(const PmergeMe& rhs);
-        ~PmergeMe();
-
-        void start(char **argv, int argc);
-        const std::vector<int>& getVector() const;
-        const std::deque<int>& getDeque() const;
+    bool addNumberToContainer(int number);
+    void printBefore() const;
+    void printAfter() const;
+    bool start(char **argv, int argc);
 };
 
 #endif
