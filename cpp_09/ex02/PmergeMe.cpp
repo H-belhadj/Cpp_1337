@@ -1,120 +1,212 @@
 #include "PmergeMe.hpp"
-#include <ctime>
-#include <algorithm>
-#include <iostream>
-#include <iomanip>
-#include <limits>
 
-PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe() : _durationVec(0), _durationDeq(0) {}
 
-PmergeMe::PmergeMe(const PmergeMe& obj)
+PmergeMe::PmergeMe(const PmergeMe &src)
 {
-    Vec_ = obj.Vec_;
-    deq_ = obj.deq_;
-    *this = obj;
+    *this = src;
 }
-
-PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
+PmergeMe& PmergeMe::operator=(const PmergeMe &src)
 {
-    if (this != &rhs)
+    if (this != &src)
     {
-        Vec_ = rhs.Vec_;
-        deq_ = rhs.deq_;
+        _vec = src._vec;
+        _deq = src._deq;
+        _durationVec = src._durationVec;
+        _durationDeq = src._durationDeq;
     }
     return *this;
 }
-
 PmergeMe::~PmergeMe() {}
 
-bool PmergeMe::addNumberToContainer(int number)
+const std::vector<int>& PmergeMe::getVector() const
 {
-    if (number < 0) {
-        return false;
-    }
-    Vec_.push_back(number);
-    deq_.push_back(number);
+    return _vec;
+}
+const std::deque<int>& PmergeMe::getDeque() const
+{
+    return _deq;
+}
+bool PmergeMe::addNumberToContainers(int number)
+{
+    _vec.push_back(number);
+    _deq.push_back(number);
     return true;
 }
-
-void PmergeMe::printBefore() const
+void PmergeMe::mergeV(int first, int middle, int last)
 {
-    std::cout << "Before: ";
-    for (std::vector<int>::size_type i = 0; i < Vec_.size(); ++i) {
-        std::cout << Vec_[i] << " ";
-    }
-    std::cout << std::endl;
-}
+    int n1 = middle - first + 1;
+    int n2 = last - middle;
 
-void PmergeMe::printAfter() const
-{
-    std::cout << "After: ";
-    for (std::vector<int>::size_type i = 0; i < Vec_.size(); ++i) {
-        std::cout << Vec_[i] << " ";
-    }
-    std::cout << std::endl;
-}
+    std::vector<int> L(n1), R(n2);
 
-double getTimeDiff(clock_t start, clock_t end)
-{
-    return static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000.0);
-}
+    for (int i = 0; i < n1; i++)
+        L[i] = _vec[first + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = _vec[middle + 1 + j];
 
-bool PmergeMe::start(char **argv, int argc)
-{
-    std::vector<int> inputNumbers;
+    int i = 0;
+    int j = 0;
+    int k = first;
 
-    // Validate and store input numbers
-    for (int i = 1; i < argc; ++i) {
-        char* endptr;
-        long num = std::strtol(argv[i], &endptr, 10);
-
-        // Check for conversion errors
-        if (*argv[i] == '\0' || *endptr != '\0') {
-            std::cout << "Error" << std::endl;
-            return false;
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            _vec[k] = L[i];
+            i++;
         }
-
-        // Check for negative or out of range numbers
-        if (num < 0 || num > std::numeric_limits<int>::max()) {
-            std::cout << "Error" << std::endl;
-            return false;
+        else
+        {
+            _vec[k] = R[j];
+            j++;
         }
-
-        inputNumbers.push_back(static_cast<int>(num));
+        k++;
     }
 
-    // If no valid numbers, return false
-    if (inputNumbers.empty()) {
-        std::cout << "Error" << std::endl;
-        return false;
+    while (i < n1)
+    {
+        _vec[k] = L[i];
+        i++;
+        k++;
     }
 
-    // Copy input to member containers
-    Vec_ = inputNumbers;
-    deq_ = std::deque<int>(inputNumbers.begin(), inputNumbers.end());
+    while (j < n2)
+    {
+        _vec[k] = R[j];
+        j++;
+        k++;
+    }
+}
+void PmergeMe::mergeD(int first, int middle, int last)
+{
+    int n1 = middle - first + 1;
+    int n2 = last - middle;
 
-    // Print before sorting
-    printBefore();
+    std::deque<int> L(n1), R(n2);
 
-    // Sort vector
-    clock_t startVec = clock();
-    std::sort(Vec_.begin(), Vec_.end());
-    clock_t endVec = clock();
+    for (int i = 0; i < n1; i++)
+        L[i] = _deq[first + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = _deq[middle + 1 + j];
 
-    // Sort deque
-    clock_t startDeq = clock();
-    std::sort(deq_.begin(), deq_.end());
-    clock_t endDeq = clock();
+    int i = 0;
+    int j = 0;
+    int k = first;
 
-    // Print after sorting
-    printAfter();
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
+        {
+            _deq[k] = L[i];
+            i++;
+        }
+        else
+        {
+            _deq[k] = R[j];
+            j++;
+        }
+        k++;
+    }
 
-    // Print time taken
-    std::cout << std::fixed << std::setprecision(5);
-    std::cout << "Time to process a range of " << Vec_.size() 
-              << " elements with std::vector : " << getTimeDiff(startVec, endVec) << " us" << std::endl;
-    std::cout << "Time to process a range of " << deq_.size() 
-              << " elements with std::deque : " << getTimeDiff(startDeq, endDeq) << " us" << std::endl;
+    while (i < n1)
+    {
+        _deq[k] = L[i];
+        i++;
+        k++;
+    }
 
+    while (j < n2)
+    {
+        _deq[k] = R[j];
+        j++;
+        k++;
+    }
+}
+void PmergeMe::sortVectorUsingMergeSort(int first, int last)
+{
+    if (first < last)
+    {
+        int middle = first + (last - first) / 2;
+        sortVectorUsingMergeSort(first, middle);
+        sortVectorUsingMergeSort(middle + 1, last);
+        mergeV(first, middle, last);
+    }
+}
+void PmergeMe::sortDequeUsingMergeSort(int first, int last)
+{
+    if (first < last)
+    {
+        int middle = first + (last - first) / 2;
+        sortDequeUsingMergeSort(first, middle);
+        sortDequeUsingMergeSort(middle + 1, last);
+        mergeD(first, middle, last);
+    }
+}
+void PmergeMe::sortVector()
+{
+    std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
+    sortVectorUsingMergeSort(0, _vec.size() - 1);
+    std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
+    this->_durationVec = end - start;
+}
+void PmergeMe::sortDeque()
+{
+    std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
+    sortDequeUsingMergeSort(0, _deq.size() - 1);
+    std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
+    this->_durationDeq = end - start;
+}
+bool is_number(const std::string &s)
+{
+    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it)
+        if (!std::isdigit(*it))
+            return false;
     return true;
+}
+void PmergeMe::start(char **argv)
+{
+    _vec.clear();  // Clear existing data
+    _deq.clear();  // Clear existing data
+
+    for (int i = 1; argv[i]; i++)
+    {
+        std::string str = argv[i];
+        if(!is_number(str))
+        {
+            std::cerr << "Error: Invalid input !" << std::endl;
+            return ;
+        }
+        int number = std::stoi(str);
+        if(!addNumberToContainers(number))
+        {
+            std::cerr << "Error: Invalid input !" << std::endl;
+            return ;
+        }
+    }
+    
+    std::cout << "before: ";
+    for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+
+    if(_vec.size() == 2 && _vec[0] > _vec[1])
+    {
+        int temp = _vec[0];
+        _vec[0] = _vec[1];
+        _vec[1] = temp;
+    }
+    else if (_vec.size() > 2)
+    {
+        sortVector();
+        sortDeque();
+    }
+
+    std::cout << "after: ";
+    for(std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+    
+    std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector: " << this->_durationVec.count() << " us" << std::endl;
+    std::cout << "Time to process a range of " << _vec.size() << " elements with std::deque: " << this->_durationDeq.count() << " us" << std::endl;
 }

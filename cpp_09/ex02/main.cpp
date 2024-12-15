@@ -1,15 +1,15 @@
 #include "PmergeMe.hpp"
 #include <iostream>
-int main(int argc, char **argv)
-{
-    if (argc < 3)
-	{
-        std::cout << "Usage: ./PmergeMe [positive integers]" << std::endl;
-        return 1;
-    }
+#include <vector>
+#include <list>
+#include <cstdlib> // For std::atoi
 
-    PmergeMe sakan;
-    sakan.start(argv, argc);
+int main(int argc, char **argv) {
+    PmergeMe Dexter;
 
+    if (argc > 2)
+        Dexter.start(argv);
+    else 
+        std::cout << "Usage: ./pmergeMe [number1] [number2] ..." << std::endl;
     return 0;
 }
