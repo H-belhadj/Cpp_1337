@@ -4,8 +4,10 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <cstdlib> 
 
-class RPN {
+class RPN
+{
     public:
         RPN();
         RPN(const RPN &obj);
@@ -14,7 +16,6 @@ class RPN {
         
         static bool numcheck(const std::string &str);
         static bool opcheck(char c);
-        static bool excheck(const std::string &str);
         static void calc(const std::string &str);
 };
 
